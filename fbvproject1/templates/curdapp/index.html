@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+{% extends 'curdapp/base.html' %}
+ {% block body_block %}
+     <h1>Employee Information Dash Board</h1>
+     <table border="2">
+     <thead>
+     <th>ENO</th>
+     <th>ENAME</th>
+     <th>ESAL</th>
+     <th>EADD</th>
+     <th>ACTIONS</th>
+     </thead>
+     {% for emp in employee %}
+         <tr>
+         <td>{{ emp.eno }}</td>
+         <td>{{ emp.ename }}</td>
+         <td>{{ emp.sal }}</td>
+         <td>{{ emp.eadd }}</td>
+         <td>
+             <a href="/update/{{ emp.id }}">Update</a>
+             <a href="/delete/{{ emp.id }}">Delete</a>
+         </td>
+         </tr>
+     {% endfor %}
+     </table><br><br>
+     <a href="/insert" class="btn btn-primary btn-lg">Do You Want to Insert New Employees</a>
+    {% endblock %}
